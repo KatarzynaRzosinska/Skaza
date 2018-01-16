@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BB0DAD8E-9FB6-4324-8986-A44CC2A652C1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mufasa</RootNamespace>
+    <AssemblyName>Mufasa</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mufasa.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bio">
+      <HintPath>..\packages\.NET Bio\lib\Bio.dll</HintPath>
+    </Reference>
+    <Reference Include="Bio.Comparative">
+      <HintPath>..\packages\.NET Bio\lib\Bio.Comparative.dll</HintPath>
+    </Reference>
+    <Reference Include="Bio.IO">
+      <HintPath>..\packages\.NET Bio\lib\Bio.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Bio.Padena">
+      <HintPath>..\packages\.NET Bio\lib\Bio.Padena.dll</HintPath>
+    </Reference>
+    <Reference Include="Bio.Pamsam">
+      <HintPath>..\packages\.NET Bio\lib\Bio.Pamsam.dll</HintPath>
+    </Reference>
+    <Reference Include="Bio.WebServiceHandlers">
+      <HintPath>..\packages\.NET Bio\lib\Bio.WebServiceHandlers.dll</HintPath>
+    </Reference>
+    <Reference Include="Bio.Workflow">
+      <HintPath>..\packages\.NET Bio\lib\Bio.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="FirstFloor.ModernUI">
+      <HintPath>..\packages\ModernUI.WPF.1.0.6\lib\net45\FirstFloor.ModernUI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Tools.VennToNodeXL">
+      <HintPath>..\packages\.NET Bio\lib\Tools.VennToNodeXL.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AlignmentsWindow.xaml.cs">
+      <DependentUpon>AlignmentsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="AlignmentsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\ModernUI.MufasaTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="BackEnd\Designer\ArrowBox.cs" />
+    <Compile Include="BackEnd\Designer\Circle.cs" />
+    <Compile Include="BackEnd\Designer\Construct.cs" />
+    <Compile Include="BackEnd\Designer\Designer.cs" />
+    <Compile Include="BackEnd\Designer\DesignerSettings.cs" />
+    <Compile Include="BackEnd\Designer\Fragment.cs" />
+    <Compile Include="BackEnd\Designer\Overlap.cs" />
+    <Compile Include="BackEnd\Exceptions\FragmentNamingException.cs" />
+    <Compile Include="BackEnd\Exceptions\SequenceCountException.cs" />
+    <Compile Include="BackEnd\Exceptions\SequenceLengthException.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SelectedFragmentWindow.xaml.cs">
+      <DependentUpon>SelectedFragmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Design.xaml.cs">
+      <DependentUpon>Design.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FragmentViewModel.cs" />
+    <Compile Include="Pages\Reaction.xaml.cs">
+      <DependentUpon>Reaction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sequence.xaml.cs">
+      <DependentUpon>Sequence.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings\Appearance.xaml.cs">
+      <DependentUpon>Appearance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings\AppearanceViewModel.cs" />
+    <Compile Include="Pages\VolumeConverter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="SelectedFragmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Design.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Reaction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Sequence.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Settings\About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Settings\Appearance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mufasa.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

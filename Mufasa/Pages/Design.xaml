@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="Mufasa.Pages.Design"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="800">
+    <Grid x:Name ="mainGrid" Style="{StaticResource ContentRoot}">
+        <ScrollViewer Margin="0,25,0,0">
+            <Grid MinWidth="200" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+
+
+                <Button x:Name="openFileButton" Content="Open fragments..." HorizontalAlignment="Left" Margin="20,20,20,20" VerticalAlignment="Top" Width="137" ToolTip="Open fragment sequence file." Click="openFileButton_Click" Height="26" Grid.Column="0" Grid.Row="2"/>
+                <Button x:Name="deleteFragmentButton" Content="Delete fragments" HorizontalAlignment="Left" Margin="20,64,20,20" VerticalAlignment="Top" Width="137" ToolTip="Delete selected fragments." Height="26" Grid.Column="0" Click="deleteFragmentButton_Click" Grid.Row="2"/>
+                <ListView x:Name="fragmentListBox" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" SelectionChanged="fragmentListBox_SelectionChanged" SelectionMode="Extended" IsSynchronizedWithCurrentItem="True" ToolTip="Your fragments pool." Grid.Column="1" Grid.Row="2" MinHeight="200" MinWidth="177" BorderThickness="1" ClipToBounds="True"/>
+                <TextBox x:Name="fragmentSequenceTextBox" Grid.Column="2" Margin="20,0,0,0" FontFamily="Courier New" FontSize="12" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" ToolTip="Selected fragment sequence." Grid.Row="2" ClipToBounds="True"/>
+                <Label x:Name="bbLabel" Content="Add from registry: " Height="20" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top"  Grid.Column="1" Grid.Row="0"/>
+                <TextBox x:Name="bbInputTextBox" KeyDown="bbInputTextBox_KeyDown" Text="BBa_" HorizontalAlignment="Left" Width="150" Height="30" Margin="0,0,20,10" VerticalAlignment="Top"  Grid.Column="1" Grid.Row="1" ToolTip="Press enter to search the Registry."/>
+
+                <ListView x:Name="constructionListBox" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" SelectionMode="Extended" IsSynchronizedWithCurrentItem="True" ToolTip="Fragments of your construct." Grid.Column="1" Grid.Row="4" MinHeight="200" MinWidth="177" BorderThickness="1" ClipToBounds="True">
+
+                </ListView>
+                <DataGrid x:Name="overlapDataGrid" Grid.Column="2" Margin="20,0,0,0" FontFamily="Courier New" FontSize="12"   ToolTip="Generated overlaps." Grid.Row="4" ClipToBounds="True" MinHeight="200" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False">
+                    <DataGrid.RowHeaderStyle>
+                        <Style TargetType="DataGridRowHeader">
+                            <Setter Property="Content" Value="{Binding Name}" />
+                            <Setter Property="Width" Value="150"/>
+                            <Setter Property="Height" Value="25"/>
+                            <Setter Property="Background" Value="#252525"/>
+                            <Setter Property="Foreground" Value="#F0A30A"/>
+                            <Setter Property="MaxWidth" Value="150px"/>
+                            <Setter Property="MinWidth" Value="50px"/>
+                        </Style>
+                    </DataGrid.RowHeaderStyle>
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Height" Value="25"/>
+                            <Setter Property="Background" Value="#333333"/>
+                            <Setter Property="Foreground" Value="#F0A30A"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Sequence" Width ="400" Binding="{Binding Path=SequenceString, Mode=OneWay}" >
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="3'Tm" Width ="75" Binding="{Binding Path=Temperature, Mode=OneWay}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="5'Tm" Width ="75" Binding="{Binding Path=PrimerTemperature, Mode=OneWay}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="saveButton" Content="Save project as..." HorizontalAlignment="Left" Margin="20,64,20,20" VerticalAlignment="Top" Width="137" ToolTip="Save your construct project." Height="26" Grid.Column="0" Grid.Row="4" Click="saveButton_Click"/>
+                <Button x:Name="assembleButton" Content="Assemble" HorizontalAlignment="Left" Margin="20,20,20,20" VerticalAlignment="Top" Width="137" ToolTip="Assemble your construct." Height="26" Grid.Column="0" Grid.Row="4" Click="assembleButton_Click"/>
+                <Button x:Name="overButton" Content="Save overlaps..." HorizontalAlignment="Left" Margin="20,108,20,20" VerticalAlignment="Top" Width="137" ToolTip="Save your overlaps." Height="26" Grid.Column="0" Grid.Row="4" Click="overButton_Click"/>
+                <Button x:Name="openProjectButton" Content="Open project..." HorizontalAlignment="Left" Margin="20,152,20,20" VerticalAlignment="Top" Width="137" ToolTip="Save your overlaps." Height="26" Grid.Column="0" Grid.Row="4" Click="openProjectButton_Click"/>
+
+                <Button x:Name="deleteConstructionFragmentButton" Content="&gt;&gt;;" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,20,20,20"  Width="50" ToolTip="Delete selected fragments." Height="26" Grid.Column="1" Grid.Row="3" Click="deleteConstructionFragmentButton_Click" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="addConstructionFragmentButton" Content="&lt;&lt;" HorizontalAlignment="Right" Margin="20,20,20,20" VerticalAlignment="Center" Width="50" ToolTip="Add selected fragments." Height="26" Grid.Column="1" Grid.Row="3" Click="addConstructionFragmentButton_Click" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+
+
+
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Mufasa.Pages.Settings.About"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <TextBlock Text="MUFASA: Multiple fragments assembler for scarless cloning of big genetic constructs." Style="{StaticResource Heading2}" TextWrapping="Wrap"/>
+                <TextBlock Text="Institiute of Computing Science, Poznan University of Technology &amp; Institute of Molecular Biology and Biotechnology, Institute of Psychology, Adam Mickiewicz University." Margin="0,30,0,8" TextWrapping="Wrap" TextAlignment="Justify" MaxWidth="800" HorizontalAlignment="Left" FontSize="11" FontStyle="Italic"/>
+                <TextBlock Text="Designed by PoznanSoft, 2014. Jakub Bartoszewicz, Melania Nowicka, Katarzyna Rzosinska, Weronika Krzynowek." Margin="0,10,0,8" TextWrapping="Wrap" TextAlignment="Justify" MaxWidth="800" HorizontalAlignment="Left"/>
+                <TextBlock Text="Overlap-based cloning techniques like Gibson Assembly and Circular Polimerase Extension Cloning (CPEC) have been recently becoming more and more popular. While available software allows rapid overlap design for constructs of conventional size, details of its functioning are not always fully transparent. MUFASA aims not only at facilitating the scarless cloning from the oligonucleotide design to putting the tubes into the thermocycler, but also at designing the fragments themselves in parallel with the overlaps for synthesis of big constructs de novo. Use of multiple overlaps pose a risk of non-specific hybridization and overlap &quot;shadowing&quot;. Such &quot;shadowy places&quot; may be eliminated by thermodynamic sequence optimization of both CPEC primers and fragments of the desired construct." Margin="0,30,0,8" TextWrapping="Wrap" TextAlignment="Justify" MaxWidth="800" HorizontalAlignment="Left"/>
+                <TextBlock Text="Project funded by the European Regional Development Fund under the Innovative Economy Operational Programme." Margin="0,30,0,8" TextWrapping="Wrap" TextAlignment="Justify" MaxWidth="800" HorizontalAlignment="Left" FontSize="10" FontStyle="Italic"/>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
